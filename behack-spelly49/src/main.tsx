@@ -13,21 +13,23 @@ import InputIngredients from './pages/InputIngredients.tsx'
 import AppBar from './components/AppBar.tsx'
 import Ingredients from './pages/Ingredients.tsx'
 import Events from './pages/Events.tsx'
-import Blog from './pages/Blog.tsx'
 import Error from './pages/Error.tsx'
 import CommunityChat from './pages/CommunityChat.tsx'
 
 // import MealCard from './components/MealCard.tsx'
 
 function AppLayout() {
-  const [ingredientDocId, setIngredientDocId] = useState<string>('');
+  const [ingredientDocId, setIngredientDocId] = useState<string>("");
   return (
     <>
       <AppBar />
-      <Outlet />
+      {/* Context is passed to children via Outlet */}
+      <Outlet context={{ ingredientDocId, setIngredientDocId }}/>
     </>
   )
 }
+
+// const [ingredientDocId, setIngredientDocId] = useState<string>('')
 
 const router = createBrowserRouter([
   {
@@ -35,25 +37,26 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-    path:"/",
-    element: <HomePage />
-    },
-  {
-    path: "/profile",
-    element: <Profile />
-  },
-  {
-    path: "/input-ingredients",
-    element: <InputIngredients setIngredientDocId={setIngredientDocId} />
-  },
-  { path: "/ingredients",
-    element: <Ingredients />
-  },
-    { path: "/events", element: <Events /> },
-    { path: "/blog", element: <Blog /> },
-    { path: "/community-chat", element: <CommunityChat /> },
-    // { path: "/meal-card", element: <MealCard title="Sample Meal" image="/images/sample.jpg" time="30 min" date={2025} contributors={[]} /> },
-  ],
+        path:"/",
+        element: <HomePage />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
+      {
+        path: "/input-ingredients",
+        // InputIngredients should use useOutletContext to access setIngredientDocId
+        element: <InputIngredients />
+      },
+      { 
+        path: "/ingredients",
+        element: <Ingredients />
+      },
+      { path: "/events", element: <Events /> },
+      { path: "/chat", element: <CommunityChat /> },
+      // { path: "/meal-card", element: <MealCard title="Sample Meal" image="/images/sample.jpg" time="30 min" date={2025} contributors={[]} /> },
+    ],
   },
 ])
 

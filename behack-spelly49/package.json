@@ -21,10 +21,10 @@
     "express": "^5.1.0",
     "firebase": "^12.5.0",
     "framer-motion": "^12.23.24",
-    "patch-package": "^8.0.1",
     "node-fetch": "^3.3.2",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "patch-package": "^8.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.5"
   },
   "devDependencies": {

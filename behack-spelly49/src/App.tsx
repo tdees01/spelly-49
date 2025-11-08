@@ -11,7 +11,7 @@ import GroceryList from './pages/GroceryList.tsx'
 import './App.css'
 import InputIngredients from './pages/InputIngredients.tsx'
 // import KrogerProduct from './KrogerProduct'
-import Profile from './Profile'
+import Profile from './pages/Profile.tsx'
 
 function App() {
   const [ingredientDocId, setIngredientDocId] = useState("");
@@ -19,7 +19,7 @@ function App() {
     <>
       <AppBar />
       <Typography>Hello</Typography>
-      <Profile></Profile>
+      {/* <Profile></Profile> */}
       <InputIngredients
         setIngredientDocId={setIngredientDocId}
       ></InputIngredients>

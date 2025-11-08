@@ -27,6 +27,7 @@ const GroceryList = ({ ingredientDocId }: GroceryListProps) => {
       });
       console.log(response.text);
       setMsg(response.text || "No text generated");
+      return response.text
     } catch (err) {
       console.log("Error generating text", err);
       setMsg("Error generating text. Check console for details");
