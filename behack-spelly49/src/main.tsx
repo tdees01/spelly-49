@@ -1,5 +1,7 @@
-import { StrictMode, useState } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import React, { useState } from 'react'
+import { Chat } from '@mui/icons-material'
 import './index.css'
 // import App from './App.tsx'
 import '@fontsource/roboto/400.css'
@@ -7,15 +9,18 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
 import HomePage from './pages/HomePage.tsx'
 import Profile from './pages/Profile.tsx'
-import InputIngredients from './InputIngredients.tsx'
+import InputIngredients from './pages/InputIngredients.tsx'
 import AppBar from './components/AppBar.tsx'
 import Ingredients from './pages/Ingredients.tsx'
 import Events from './pages/Events.tsx'
 import Blog from './pages/Blog.tsx'
 import Error from './pages/Error.tsx'
+import CommunityChat from './pages/CommunityChat.tsx'
+
 // import MealCard from './components/MealCard.tsx'
 
 function AppLayout() {
+  const [ingredientDocId, setIngredientDocId] = useState<string>('');
   return (
     <>
       <AppBar />
@@ -23,8 +28,6 @@ function AppLayout() {
     </>
   )
 }
-
-const [ingredientDocId, setIngredientDocId] = useState<string>('')
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,7 @@ const router = createBrowserRouter([
   },
     { path: "/events", element: <Events /> },
     { path: "/blog", element: <Blog /> },
+    { path: "/community-chat", element: <CommunityChat /> },
     // { path: "/meal-card", element: <MealCard title="Sample Meal" image="/images/sample.jpg" time="30 min" date={2025} contributors={[]} /> },
   ],
   },
@@ -58,3 +62,5 @@ createRoot(document.getElementById('root')!).render(
     <RouterProvider router={router}/>
   </StrictMode>,
 );
+
+

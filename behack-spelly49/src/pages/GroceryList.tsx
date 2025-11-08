@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
-import krogerConfig from './config/kroger'
-import { db } from "./config/firebase.ts";
+import krogerConfig from '../config/kroger';
+import { db } from "../config/firebase.ts";
 import { doc, getDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { Typography, Button } from "@mui/material";

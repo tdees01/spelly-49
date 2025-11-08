@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TextField, List, ListItem, ListItemText, Button, Box, Typography } from '@mui/material'
-import { db } from "./config/firebase.ts"; // Import the db instance
+import { db } from "../config/firebase.ts"; // Import the db instance
 import { collection, addDoc } from "firebase/firestore";
 
 interface ingredientProp {
