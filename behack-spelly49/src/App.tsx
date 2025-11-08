@@ -21,7 +21,7 @@ function App() {
       <AppBar />
       <AppButton></AppButton>
       <Typography>Hello</Typography>
-      <Profile></Profile>
+      {/* <Profile></Profile> */}
       <InputIngredients
         setIngredientDocId={setIngredientDocId}
       ></InputIngredients>

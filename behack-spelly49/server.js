@@ -41,13 +41,27 @@ const fetchToken = () => {
 app.get('/api/products', async (req, res) => {
   try {
     const access_token = await fetchToken();
-    const response = await axios.get('https://api.kroger.com/v1/products?filter.term=milk&filter.limit=5', {
-      params: req.query,
+    const ingredient = req.query.term;
+    if (!ingredient) {
+      return res.status(400).json({ error: 'Missing term parameter' });
+    }
+    const response = await axios.get('https://api.kroger.com/v1/products', {
+      params: {
+        'filter.term': ingredient,
+        'filter.limit': 5,
+        'filter.brand': 'Kroger'
+      },
       headers: {
         'Authorization': `Bearer ${access_token}`
       }
     });
-    res.json(response.data);
+    const neededData = response.data.data.map(product => ({
+        id: product.productId,
+        title: product.description,
+        brand: product.brand,
+        allergensDescription: product.allergensDescription,
+    }));
+    res.json(neededData);
   } catch (error) {
     res.status(500).json({ error: error.message });
     return res.json

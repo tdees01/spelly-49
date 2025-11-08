@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useOutletContext } from "react-router-dom";
 import { TextField, List, ListItem, ListItemText, Button, Box, Typography } from '@mui/material'
 import { db } from "./config/firebase.ts"; // Import the db instance
 import { collection, addDoc } from "firebase/firestore";
@@ -7,7 +8,11 @@ interface ingredientProp {
   setIngredientDocId: (id: string) => void;
 }
 
-const InputIngredients = ({ setIngredientDocId }: ingredientProp) => {
+const InputIngredients = () => {
+  const { setIngredientDocId } = useOutletContext<{
+    ingredientDocId: string;
+    setIngredientDocId: (id: string) => void;
+  }>();
 
   interface ingredientData {
     ingredients: string[];
