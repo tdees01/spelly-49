@@ -50,6 +50,7 @@ app.get('/api/products', async (req, res) => {
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: error.message });
+    return res.json
   }
 });
 
