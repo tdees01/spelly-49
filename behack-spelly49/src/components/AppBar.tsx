@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
+import GroceryList from '../GroceryList';
+import { Link } from '@mui/material'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -16,6 +18,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = [
   { name: 'Ingredients', path: '/ingredients' },
+  { name: 'Grocery List', path: '/grocery-list'},
   { name: 'Events', path: '/events' },
   { name: 'Chat', path: '/chat' },
 ];
@@ -95,7 +98,12 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} onClick={() => handleCloseNavMenu(page.path)}>
+                <MenuItem
+                  key={page.name}
+                  component={RouterLink}
+                  to={page.path}
+                  onClick={() => handleCloseNavMenu(page.path)}
+                >
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
@@ -128,6 +136,8 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page.name}
+                component={RouterLink}
+                to={page.path}
                 onClick={() => handleCloseNavMenu(page.path)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >

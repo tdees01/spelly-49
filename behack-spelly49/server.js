@@ -55,7 +55,7 @@ app.get('/api/products', async (req, res) => {
         'Authorization': `Bearer ${access_token}`
       }
     });
-    const neededData = response.data.data.map(product => ({
+    const neededData = response.data.map(product => ({
         id: product.productId,
         title: product.description,
         brand: product.brand,

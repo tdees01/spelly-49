@@ -14,14 +14,13 @@ import InputIngredients from './pages/InputIngredients.tsx'
 import Profile from './pages/Profile.tsx'
 
 function App() {
-  const [ingredientDocId, setIngredientDocId] = useState("");
+  const [ingredientDocId, setIngredientDocId] = useState<string>("");
   return (
     <>
       <AppBar />
       <Typography>Hello</Typography>
       {/* <Profile></Profile> */}
       <InputIngredients
-        setIngredientDocId={setIngredientDocId}
       ></InputIngredients>
       <GroceryList ingredientDocId={ingredientDocId}></GroceryList>
       {/* <Button onClick={() => fetchToken()}>Get Token</Button> */}

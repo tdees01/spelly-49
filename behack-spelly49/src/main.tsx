@@ -5,11 +5,12 @@ import { Chat } from '@mui/icons-material'
 import './index.css'
 // import App from './App.tsx'
 import '@fontsource/roboto/400.css'
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Outlet, useOutletContext } from 'react-router-dom'
 
 import HomePage from './pages/HomePage.tsx'
 import Profile from './pages/Profile.tsx'
-import InputIngredients from './pages/InputIngredients.tsx'
+import GroceryList from './GroceryList.tsx'
+import InputIngredients from './InputIngredients.tsx'
 import AppBar from './components/AppBar.tsx'
 import Ingredients from './pages/Ingredients.tsx'
 import Events from './pages/Events.tsx'
@@ -53,12 +54,23 @@ const router = createBrowserRouter([
         path: "/ingredients",
         element: <Ingredients />
       },
+      {
+        path: "/grocery-list",
+        element: (
+          <GroceryListWrapper />
+        )
+      },
       { path: "/events", element: <Events /> },
       { path: "/chat", element: <CommunityChat /> },
       // { path: "/meal-card", element: <MealCard title="Sample Meal" image="/images/sample.jpg" time="30 min" date={2025} contributors={[]} /> },
     ],
   },
 ])
+
+function GroceryListWrapper() {
+  const { ingredientDocId } = useOutletContext<{ ingredientDocId: string }>();
+  return <GroceryList ingredientDocId={ingredientDocId} />;
+}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

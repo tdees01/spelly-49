@@ -4,7 +4,6 @@ import { db } from "../config/firebase.ts";
 import { doc, getDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { Typography, Button } from "@mui/material";
-import "./App.css";
 
 interface GroceryListProps {
     ingredientDocId: string;
@@ -60,7 +59,7 @@ const GroceryList = ({ ingredientDocId }: GroceryListProps) => {
         variant="contained"
         color="primary"
         onClick={handleClick}
-        sx={{ p: "10px", backgroundColor: "#d698fd" }}
+        sx={{ p: "10px", margin: "20px", display: "flex", justifyContent: "center" }}
       >
         Get Meal Idea
       </Button>
