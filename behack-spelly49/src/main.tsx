@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 // import App from './App.tsx'
@@ -24,6 +24,8 @@ function AppLayout() {
   )
 }
 
+const [ingredientDocId, setIngredientDocId] = useState<string>('')
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/input-ingredients",
-    element: <InputIngredients />
+    element: <InputIngredients setIngredientDocId={setIngredientDocId} />
   },
   { path: "/ingredients",
     element: <Ingredients />
