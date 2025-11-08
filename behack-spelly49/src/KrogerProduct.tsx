@@ -6,17 +6,15 @@ import { Button } from '@mui/material'
 const KrogerProduct = () => {
     const [token, setToken] = useState<string | null>(null);
 
-    useEffect(() => {
-        fetchToken() 
-            .then((t: string | null) => setToken(t))
-            .catch(err => console.error('Token error', err))
-    }, []);
-
     function fetchProducts() {
+        fetchToken(); 
         if (!token) {
             console.warn('No token yet')
             return
+        } else {
+            console.log("the token is", token)
         }
+
 
         const myHeaders = new Headers()
         myHeaders.append("Accept", "application/json");
@@ -26,7 +24,7 @@ const KrogerProduct = () => {
         
         // let ingredient = ""
         const url =
-          'https://api.kroger.com/v1/products?filter.term=milk&filter.limit=5';
+          "https://cors-anywhere.herokuapp.com/https://api.kroger.com/v1/products?filter.term=milk&filter.limit=5";
     
         // const urlencoded = new URLSearchParams();
         // urlencoded.append("grant_type", "client_credentials");
@@ -53,4 +51,4 @@ const KrogerProduct = () => {
     )
 }
 
-export default KrogerProduct
+export default KrogerProduct 

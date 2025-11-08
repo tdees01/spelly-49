@@ -9,10 +9,10 @@ import { createBrowserRouter, RouterProvider, Outlet, useOutletContext } from 'r
 
 import HomePage from './pages/HomePage.tsx'
 import Profile from './pages/Profile.tsx'
-import GroceryList from './GroceryList.tsx'
-import InputIngredients from './InputIngredients.tsx'
+import GroceryList from './pages/GroceryList.tsx'
+import InputIngredients from './pages/InputIngredients.tsx'
 import AppBar from './components/AppBar.tsx'
-import Ingredients from './pages/Ingredients.tsx'
+// import Ingredients from './pages/Ingredients.tsx'
 import Events from './pages/Events.tsx'
 import Error from './pages/Error.tsx'
 import CommunityChat from './pages/CommunityChat.tsx'
@@ -50,10 +50,10 @@ const router = createBrowserRouter([
         // InputIngredients should use useOutletContext to access setIngredientDocId
         element: <InputIngredients />
       },
-      { 
-        path: "/ingredients",
-        element: <Ingredients />
-      },
+      // { 
+      //   path: "/ingredients",
+      //   element: <Ingredients />
+      // },
       {
         path: "/grocery-list",
         element: (

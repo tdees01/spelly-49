@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
-import GroceryList from '../GroceryList';
+import GroceryList from '../pages/GroceryList';
 import { Link } from '@mui/material'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';

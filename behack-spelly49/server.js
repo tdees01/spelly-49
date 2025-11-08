@@ -37,17 +37,18 @@ const fetchToken = () => {
     });
 
 }
-
+const url = "https://api.kroger.com/v1/products"
 app.get('/api/products', async (req, res) => {
   try {
     const access_token = await fetchToken();
     const ingredient = req.query.term;
+    console.log("the ingredient", ingredient)
     if (!ingredient) {
       return res.status(400).json({ error: 'Missing term parameter' });
     }
-    const response = await axios.get('https://api.kroger.com/v1/products', {
+    const response = await axios.get(url, {
       params: {
-        'filter.term': ingredient,
+        'filter.term': 'pickles',
         'filter.limit': 5,
         'filter.brand': 'Kroger'
       },
@@ -55,6 +56,7 @@ app.get('/api/products', async (req, res) => {
         'Authorization': `Bearer ${access_token}`
       }
     });
+    console.log(url, params);
     const neededData = response.data.map(product => ({
         id: product.productId,
         title: product.description,
@@ -62,6 +64,7 @@ app.get('/api/products', async (req, res) => {
         allergensDescription: product.allergensDescription,
     }));
     res.json(neededData);
+    console.log(neededData);
   } catch (error) {
     res.status(500).json({ error: error.message });
     return res.json

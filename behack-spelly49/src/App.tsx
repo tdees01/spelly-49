@@ -1,4 +1,4 @@
-import { Typography} from '@mui/material'
+import { Typography, Button} from '@mui/material'
 
 // components
 import AppBar from './components/AppBar.tsx';
@@ -7,6 +7,7 @@ import AppBar from './components/AppBar.tsx';
 import React, { useState } from 'react'
 import GroceryList from './pages/GroceryList.tsx'
 // import fetchToken from './KrogerToken'
+// import fetchProducts from './KrogerProduct'
 // import Test from './Test'
 import './App.css'
 import InputIngredients from './pages/InputIngredients.tsx'
@@ -20,10 +21,8 @@ function App() {
       <AppBar />
       <Typography>Hello</Typography>
       {/* <Profile></Profile> */}
-      <InputIngredients
-      ></InputIngredients>
+      <InputIngredients></InputIngredients>
       <GroceryList ingredientDocId={ingredientDocId}></GroceryList>
-      {/* <Button onClick={() => fetchToken()}>Get Token</Button> */}
     </>
   );
 }
