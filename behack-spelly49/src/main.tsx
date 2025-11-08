@@ -13,6 +13,7 @@ import Ingredients from './pages/Ingredients.tsx'
 import Events from './pages/Events.tsx'
 import Blog from './pages/Blog.tsx'
 import Error from './pages/Error.tsx'
+// import MealCard from './components/MealCard.tsx'
 
 function AppLayout() {
   return (
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
   },
     { path: "/events", element: <Events /> },
     { path: "/blog", element: <Blog /> },
+    // { path: "/meal-card", element: <MealCard title="Sample Meal" image="/images/sample.jpg" time="30 min" date={2025} contributors={[]} /> },
   ],
   },
 ])
