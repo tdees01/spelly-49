@@ -1,17 +1,23 @@
-import { Typography } from '@mui/material'
-import GroceryList from './GroceryList'
-import Test from './Test'
-import './App.css'
+import { Typography} from '@mui/material'
+
+// components
 import InputIngredients from './InputIngredients'
+import GroceryList from './GroceryList'
+
+import AppButton from './components/AppButton.tsx';
+import AppBar from './components/AppBar.tsx';
+
+// functional component
 
 function App() {
 
   return (
     <>
+      <AppBar />
       <Typography>Hello</Typography>
       <GroceryList></GroceryList>
       <InputIngredients></InputIngredients>
-      <Test></Test>
+      <AppButton></AppButton>
     </>
   )
 }
